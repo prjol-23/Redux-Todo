@@ -27,10 +27,10 @@ export const todoSlice = createSlice({
         editTodo: (state,action)=>{
             const { id, text } = action.payload;
             const existingTodo = state.todos.find(todo => todo.id === id);
-            //existingTodo && existingTodo.text == text;
-            if (existingTodo) {
-                existingTodo.text = text;
-            }
+            existingTodo && existingTodo.text == text;
+            // if (existingTodo) {
+            //     existingTodo.text = text;
+            // }
         }
     }
 });

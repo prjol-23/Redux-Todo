@@ -5,7 +5,7 @@ import Todo from './components/Todo'
 const App = () => {
   return (
     <>
-      <h1>Welcome to redux toolkit</h1>
+      <h1>Welcome to redux Todo Handler</h1>
       <AddTodo/>
 
       <div>

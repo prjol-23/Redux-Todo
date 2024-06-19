@@ -25,19 +25,15 @@ function Todo() {
     setEditingId(null);
     setEditInput('');
   };
+  
+ 
   const dispatch = useDispatch();
+
+
   return (
     <ol type="1">
       {todos.map((todo) => (
         <li style={{ marginBottom: "15px" }} key={todo.id}>
-          {/* {todo.text} */}
-          {/* <button
-            style={{ backgroundColor: 'green', marginLeft: '5px' }}
-            onClick={() => dispatch(handleEditTodo(todo.id))}
-            >
-            Edit
-            </button> */}
-
               {editingId === todo.id ? (
                 <>
                   <input
