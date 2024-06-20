@@ -26,18 +26,18 @@ function AddTodo() {
         onChange={(e) => setInput(e.target.value)}
       />
 
-      <input
+      <button
         style={{
           marginLeft: "15px",
           backgroundColor: "blue",
           maxWidth: "5rem",
-          borderRadius: "5px",
+          
           cursor: "pointer",
         }}
         type="submit"
         value="Add"
         onClick={addTodoHandler}
-      />
+      >Add</button>
     </form>
   );
 }

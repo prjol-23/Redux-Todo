@@ -44,11 +44,17 @@ function Todo() {
                           onChange={(e) => setEditInput(e.target.value)}
                         />
                         <button
-                          style={{ backgroundColor: "green", marginLeft: "15px" }}
+                          style={{ backgroundColor: "green", marginTop: "15px",marginLeft: "20rem"   }}
                           onClick={() => handleSaveEdit(todo.id)}
                         >
                           Save
                         </button>
+                        <button
+                    style={{ backgroundColor: "grey",marginLeft: "5px"}}
+                    onClick={() => handleSaveEdit(todo.id)}
+                  >
+                    Back
+                  </button>
                   </form>
                   
                 </>
@@ -56,7 +62,7 @@ function Todo() {
                 <>
                   {todo.text}
                   <button
-                    style={{ backgroundColor: "grey", marginLeft: "15px" }}
+                    style={{ backgroundColor: "grey",marginTop: "15px", marginLeft: "20rem" }}
                     onClick={() => handleEditTodo(todo.id)}
                   >
                     Edit
