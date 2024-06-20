@@ -22,7 +22,13 @@ function Todo() {
     setEditInput('');
   }
   
- 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (editInput.trim()) {
+      dispatch(addTodo(editInput));
+     
+    }
+  };
 
 
   return (
@@ -31,17 +37,20 @@ function Todo() {
         <li style={{ marginBottom: "15px" }} key={todo.id}>
               {editingId === todo.id ? (
                 <>
-                  <input
-                    type="text"
-                    value={editInput}
-                    onChange={(e) => setEditInput(e.target.value)}
-                  />
-                  <button
-                    style={{ backgroundColor: "green", marginLeft: "15px" }}
-                    onClick={() => handleSaveEdit(todo.id)}
-                  >
-                    Save
-                  </button>
+                  <form onSubmit={handleSubmit}>
+                        <input               
+                          type="text"
+                          value={editInput}
+                          onChange={(e) => setEditInput(e.target.value)}
+                        />
+                        <button
+                          style={{ backgroundColor: "green", marginLeft: "15px" }}
+                          onClick={() => handleSaveEdit(todo.id)}
+                        >
+                          Save
+                        </button>
+                  </form>
+                  
                 </>
               ) : (
                 <>
@@ -52,14 +61,14 @@ function Todo() {
                   >
                     Edit
                   </button>
+                  <button
+                    style={{ backgroundColor: "red", marginLeft: "5px" }}
+                    onClick={() => dispatch(removeTodo(todo.id))}
+                  >
+                    Delete
+                  </button>
                 </>
               )}
-            <button
-              style={{ backgroundColor: "red", marginLeft: "5px" }}
-              onClick={() => dispatch(removeTodo(todo.id))}
-            >
-              Delete
-            </button>
             
         </li>
       ))}
