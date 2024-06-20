@@ -5,12 +5,15 @@ function AddTodo() {
   const [input, setInput] = useState("");
 
   const dispatch = useDispatch();
+  
+
+
 
   const addTodoHandler = (e) => {
     e.preventDefault();
     if (input.trim()) {
       dispatch(addTodo(input));
-      setInput(""); // Clear the form input after submission
+      setInput(''); // Clear the form input after submission
     }
   };
 

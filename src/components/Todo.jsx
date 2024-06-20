@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { useState,useRef } from "react";
+import { useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { editTodo,removeTodo } from "../features/todo/todoSlice";
+
 function Todo() {
   const [editInput, setEditInput] = useState("");
   const [editingId, setEditingId] = useState(null);
-  const editInputRef = useRef(null);
   const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
 
   const handleEditTodo = (id) => {
     setEditingId(id);
@@ -14,20 +14,15 @@ function Todo() {
     setEditInput(todo.text);
   };
 
-  useEffect(() => {
-    if (editingId !== null && editInputRef.current) {
-      editInputRef.current.focus();
-  }
-  }, [editingId]);
+  
   
   const handleSaveEdit = (id) => {
     dispatch(editTodo({ id, text: editInput }));
     setEditingId(null);
     setEditInput('');
-  };
+  }
   
  
-  const dispatch = useDispatch();
 
 
   return (
@@ -54,7 +49,6 @@ function Todo() {
                   <button
                     style={{ backgroundColor: "grey", marginLeft: "15px" }}
                     onClick={() => handleEditTodo(todo.id)}
-                    onChange={(e) => setEditInput(e.target.focus)}
                   >
                     Edit
                   </button>
