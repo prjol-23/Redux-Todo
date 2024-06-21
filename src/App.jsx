@@ -8,7 +8,7 @@ const App = () => {
       <h1>Welcome to redux Todo Handler</h1>
       <AddTodo/>
 
-      <div>
+      <div className='todo'>
         <Todo/>
       </div>
     </>
